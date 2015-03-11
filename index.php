@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="utf-8">
@@ -12,27 +11,29 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
   </head>
 
-  <body>
-    <div class="container">
-
-      <form class="form-signin" method="POST" action="includes/connect.php">
-
-        <h2 class="form-signin-heading">PhpMyAdmin</h2>
-
-        <label for="login" class="sr-only">Login</label>
-        <input type="text" id="login" name="login" class="form-control" placeholder="login" required autofocus>
-
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" id="password" name="password" class="form-control" placeholder="password" required>
-
-        <button class="btn btn-lg btn-primary btn-block" id="connexion" name="connexion" type="submit">Connexion</button>
-      </form>
+<div class="container">
+  <div class="row" id="pwd-container">
+    <div class="col-md-4"></div>
+    
+      <div class="col-md-4">
+        <section class="login-form">
+          <form method="post" action="includes/connect.php" role="login">
+            <img src="http://www.mabe23.it/blog/wp-content/uploads/2014/10/phpmyadmin-logo-604x2721.png" class="img-responsive" alt="" />
+            <input type="text" id="login" name="login" class="form-control" placeholder="login" required autofocus>
+            <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password" required="" />
+            <button class="btn btn-lg btn-primary btn-block" id="connexion" name="connexion" type="submit">Connexion</button>
+            
+            <div class="pwstrength_viewport_progress"></div>
+        </section>
+      </div>
     </div>
-
-  <?php if(isset($_POST['connexion']))
-    echo 'erreur !';
-  ?>
-  </body>
+  </div>
+</div>
+    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/npm.js"></script>
 </html>

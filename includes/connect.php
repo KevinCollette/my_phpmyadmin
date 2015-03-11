@@ -3,13 +3,11 @@ function connect()
 {
 	if (!empty($_POST['login']) && !empty($_POST['password'])) {
 
-		if (($_POST['login'] == 'admin') && ($_POST['password'] == 'root')) {
+		if (($_POST['login'] == 'admin') && ($_POST['password'] == 'adminadmin')) {
 			$server = 'localhost';
 			$base = 'phpmyadmin';
-			$connect = mysql_connect($server,'root','') 
+			$connect = mysqli_connect($server,'root','', $base) 
 				or die ("erreur de connexion");
-			mysql_select_db($base, $connect) 
-				or die ("erreur de connexion base");
 
 			session_start();
 					$_SESSION['user'] = $_POST['login'];
