@@ -1,29 +1,30 @@
 <?php
-if (!isset($_SESSION['login']))
+function connect()
 {
-	if (!empty($_POST['login']))
-		{
-				$serveur = "localhost";
-				$base = "phpmyadmin";
-				@$mysqli = new mysqli($serveur, $_POST['login'], $_POST['password'], $base);
-				if ($mysqli->connect_error) {
-				header('Location: ../index.php?erreur='.$mysqli->connect_error);
-				echo "erreur d'authentification";
-				exit;
-			}
-		else
-			{
-				session_start();
-				$_SESSION['login'] = $_POST['login'];
-				$_SESSION['password'] = $_POST['password'];
-				$_SESSION['server'] = $serveur;
-				header('Location: ../script/accueil.php');
-			}
+	if (!empty($_POST['login']) && !empty($_POST['password'])) {
+
+		if (($_POST['login'] == 'admin') && ($_POST['password'] == 'root')) {
+			$server = 'localhost';
+			$base = 'phpmyadmin';
+			$connect = mysql_connect($server,'root','') 
+				or die ("erreur de connexion");
+			mysql_select_db($base, $connect) 
+				or die ("erreur de connexion base");
+
+			session_start();
+					$_SESSION['user'] = $_POST['login'];
+					$_SESSION['password'] = $_POST['password'];
+					$_SESSION['server'] = $server;
+
+			header('Location: ../script/accueil.php');
 		}
-	else
-		{
+		else {
 			header('Location: ../index.php');
-			echo "erreur d'authentification";
 		}
+	}
+	else {
+		header('Location: ../index.php');
+	}
 }
+connect();
 ?>
