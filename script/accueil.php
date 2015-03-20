@@ -71,38 +71,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <script src="../js/test.js"></script>
      <script type="text/javascript" src="../js/sidebar.js"></script>
-     <!--
-     <script type="text/javascript">  
 
-  $("#btntest").click(function()
-  {
-             alert("error");
-    $.ajax({
-       url : '../includes/afftab.php',
-       type : 'GET',
-       dataType : 'html',
-       success : function(code_html, statut){
-                 alert("succes");
-           $(code_html).appendTo("#testtest"); 
-         },
-
-       error : function(resultat, statut, erreur){
-         alert("error");
-       },
-
-       complete : function(resultat, statut){
-
-  }
-
-    });
-   
-});
-     </script>
-   -->
   </body>
      
 </html>
